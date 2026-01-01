@@ -51,3 +51,5 @@ If you're using your phone or any other device connected to the same Wi-Fi netwo
 
 - Find the local IP address of your laptop by running ipconfig (on Windows) or ifconfig (on Mac/Linux) in your terminal.
 - Use the IP address of the laptop with port 5000, for example: http://192.168.x.x:5000
+
+Modifying text to practice git commands!

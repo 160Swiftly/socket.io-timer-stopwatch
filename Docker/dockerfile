@@ -1,0 +1,11 @@
+FROM continuumio/miniconda3
+
+WORKDIR /Docker
+
+COPY server.py .
+COPY environment.yml .
+
+RUN conda env create -f environment.yml
+RUN conda activate stopwatch
+
+CMD ["conda", "run", "-n", "stopwatch", "python", "server.py"]

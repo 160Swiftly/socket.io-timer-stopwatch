@@ -44,6 +44,78 @@ python server.py
 
 This will start the Flask application, and the server should now be available at http://localhost:5000 on your laptop
 
+## Docker Installation
+
+You can also run this application using Docker, which ensures a consistent environment across different systems.
+
+### Prerequisites
+
+- Docker installed on your system ([Install Docker](https://docs.docker.com/get-docker/))
+
+### Build the Docker Image
+
+From the project root directory, build the Docker image:
+
+```bash
+docker build -f dockerfile -t timer-stopwatch .
+```
+
+This will:
+- Create a conda environment with Python 3.10.8
+- Install Flask and Flask-SocketIO
+- Copy all necessary application files
+
+### Run the Docker Container
+
+Run the container with port mapping:
+
+```bash
+docker run -p 8000:8000 timer-stopwatch
+```
+
+The application will be available at http://localhost:8000
+
+### Run in Detached Mode (Background)
+
+To run the container in the background:
+
+```bash
+docker run -d -p 8000:8000 --name timer-app timer-stopwatch
+```
+
+### View Container Logs
+
+To view the application logs:
+
+```bash
+docker logs timer-app
+```
+
+Or for real-time logs:
+
+```bash
+docker logs -f timer-app
+```
+
+### Stop the Container
+
+To stop a running container:
+
+```bash
+docker stop timer-app
+```
+
+To remove the container:
+
+```bash
+docker rm timer-app
+```
+
+### Access from Other Devices
+
+When running in Docker, access the application from other devices on the same network using:
+- `http://<your-ip-address>:8000`
+
 ### 4 Access the application from other devices
 
 Access the application from other devices

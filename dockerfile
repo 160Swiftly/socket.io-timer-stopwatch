@@ -4,11 +4,11 @@ FROM continuumio/miniconda3
 WORKDIR /Docker
 
 # Copy environment.yml and create conda environment (package size: 1.3MB)
-COPY Docker/environment.yml .
+COPY environment.yml .
 RUN conda env create -f environment.yml
 
 # Copy server.py (package size: 0.5MB)
-COPY Docker/server.py .
+COPY server.py .
 
 # Copy templates and static files (required for Flask)
 COPY bin/templates ./templates

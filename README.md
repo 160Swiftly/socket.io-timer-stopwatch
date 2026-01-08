@@ -116,12 +116,9 @@ docker rm timer-app
 When running in Docker, access the application from other devices on the same network using:
 - `http://<your-ip-address>:8000`
 
-### 4 Access the application from other devices
+## Access the Application from Other Devices
 
-Access the application from other devices
 If you're using your phone or any other device connected to the same Wi-Fi network:
 
-- Find the local IP address of your laptop by running ipconfig (on Windows) or ifconfig (on Mac/Linux) in your terminal.
-- Use the IP address of the laptop with port 5000, for example: http://192.168.x.x:5000
-
-Modifying text to practice git commands!
+- Find the local IP address of your laptop by running `ipconfig` (on Windows) or `ifconfig` (on Mac/Linux) in your terminal.
+- Use the IP address of the laptop with port 5000, for example: `http://192.168.x.x:5000`

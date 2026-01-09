@@ -12,11 +12,19 @@ socketio = SocketIO(app)
 if not os.path.exists('log'):
     os.makedirs('log')
 
-# Configure logging with overwrite mode for 'server_logs.log' in the 'log' folder (python)
-logging.basicConfig(filename='log/server_logs.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
-# Redirect stdout and stderr to files inside the 'log' folder (bash)
-sys.stdout = open('log/bash_log.log', 'w')
-sys.stderr = sys.stdout
+# Check if running in Docker (don't redirect stdout/stderr in Docker so logs are visible)
+is_docker = os.path.exists('/.dockerenv')
+
+# Configure logging
+if is_docker:
+    # In Docker: log to stdout/stderr so Docker can capture it
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+else:
+    # Not in Docker: log to file as before
+    logging.basicConfig(filename='log/server_logs.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
+    # Redirect stdout and stderr to files inside the 'log' folder (bash)
+    sys.stdout = open('log/bash_log.log', 'w')
+    sys.stderr = sys.stdout
 
 logger = logging.getLogger(__name__)
 
@@ -121,4 +129,4 @@ def handle_close_modal():
 
 # Run the application
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
+    socketio.run(app, host='0.0.0.0', port=8000, allow_unsafe_werkzeug=True)

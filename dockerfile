@@ -15,4 +15,4 @@ RUN pip install flask flask-socketio
 
 EXPOSE 8000
 
-CMD ["python", "server.py"]
+CMD ["python", "./bin/server.py"]

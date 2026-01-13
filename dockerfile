@@ -15,4 +15,4 @@ RUN pip install flask flask-socketio
 
 EXPOSE 8000
 
-CMD ["python", "socket.io-timer-stopwatch/server.py"]
+CMD ["python", "server.py"]

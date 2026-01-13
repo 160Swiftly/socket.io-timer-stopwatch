@@ -1,0 +1,33 @@
+2026-01-12 22:24:36,929 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.2.11:8000
+2026-01-12 22:24:36,929 - INFO - [33mPress CTRL+C to quit[0m
+2026-01-12 22:24:48,048 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/macbook/socket.io-timer-stopwatch/server.py", line 39, in index
+    return render_template('index.html')
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "/opt/miniconda3/envs/project_1/lib/python3.10/site-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2026-01-12 22:24:48,053 - INFO - 127.0.0.1 - - [12/Jan/2026 22:24:48] "[35m[1mGET / HTTP/1.1[0m" 500 -

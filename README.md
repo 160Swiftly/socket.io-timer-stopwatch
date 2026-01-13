@@ -122,3 +122,7 @@ If you're using your phone or any other device connected to the same Wi-Fi netwo
 
 - Find the local IP address of your laptop by running `ipconfig` (on Windows) or `ifconfig` (on Mac/Linux) in your terminal.
 - Use the IP address of the laptop with port 5000, for example: `http://192.168.x.x:5000`
+
+### Docker Image from DockerHub
+
+docker pull dahroosen/stopwatch:light@sha256:b74020d37f3a7b932a9067833c0d1290f6b53d1c179cacfb3306b897509aa68a
